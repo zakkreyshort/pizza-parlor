@@ -4,12 +4,14 @@ function Pizza(size, toppings){
   this.toppings = toppings;
 }
 
+// think this is redundant since we only select one size 
 Pizza.prototype.selectSize = function(size){
   this.size.push(size);
 }
 
+// push topping to eventual array to add all toppings 
 Pizza.prototype.selectTopping = function(topping){
-  this.toppings.push(topping)
+  this.toppings.push(topping);
 }
 
 
@@ -18,14 +20,12 @@ function addToCost(){
     if(size === "8"){
       cost = 8,
     } else if(size === "10"){
-      size += cost;
-      this.totalCost.push(cost);
+      cost = 10,
     } else if(size === "12"){
-      size += cost;
-      this.totalCost.push(cost);
-    } else{
-      alert("Please choose a size")
-    }
+      cost = 12,
+    } 
+    // ??for loop going through each checkbox value for toppings??
+    
   }
 
 
@@ -33,30 +33,23 @@ function addToCost(){
 
 // user interface 
 
-var pizza = new Pizza();
 
-function newOrder (totalCost){
-  var customer = new Pizza (totalCost);
-  Pizza.totalCost(customer);
-  return customer;
-}
 
-function displayTotal (){
-  $("span#orderTotal").text("$" + this.totalCost);
-}
+
 
 // front end 
 
 $(document).ready(function(){
-  $("button#completeOrder").submit(function(event){
+  $("#completeOrder").submit(function(event){
     event.preventDefault();
     var size = $("input:radio[name=size]:checked").val();
     var toppings = [];
     var yourPizza = new Pizza(size, toppings)
     $("input:checkbox[name=toppings]:checked").each(function() {
     var checkTopping = $(this).val();
-    yourPizza.addTopping(checkTopping);
+    yourPizza.selectTopping(checkTopping);
     });
 
+    // display pizza total somewhere 
   })
 })
