@@ -4,27 +4,30 @@ function Pizza(size, toppings){
   this.toppings = toppings;
 }
 
+Pizza.prototype.selectSize = function(size){
+  this.size.push(size);
+}
+
 Pizza.prototype.selectTopping = function(topping){
-  this.topping.push(this.toppings)
+  this.toppings.push(topping)
 }
 
 
 function addToCost(){
   var cost;
-    if(size === 8){
+    if(size === "8"){
+      cost = 8,
+    } else if(size === "10"){
       size += cost;
       this.totalCost.push(cost);
-    } else if(size === 10){
-      size += cost;
-      this.totalCost.push(cost);
-    } else if(size === 12){
+    } else if(size === "12"){
       size += cost;
       this.totalCost.push(cost);
     } else{
       alert("Please choose a size")
     }
   }
-}
+
 
 
 
@@ -51,8 +54,8 @@ $(document).ready(function(){
     var toppings = [];
     var yourPizza = new Pizza(size, toppings)
     $("input:checkbox[name=toppings]:checked").each(function() {
-      var checkTopping = $(this).val();
-      yourPizza.addTopping(checkTopping);
+    var checkTopping = $(this).val();
+    yourPizza.addTopping(checkTopping);
     });
 
   })
