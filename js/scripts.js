@@ -1,22 +1,16 @@
 // back end 
-function Pizza(size, toppings, cost, totalCost){
+function Pizza(size, toppings){
   this.size = size;
   this.toppings = toppings;
-  this.cost = cost
-  this.totalCost = [];
 }
 
-Pizza.prototype.totalCost = function displayAmount(){
-  var sizeRequested = parseInt($("radio#value").val());
-  var toppingsRequested = parseInt($("checkbox#value").val());
-  var totalCostprint = addToppingsToCost(sizeRequested += toppingsRequested)
-  this.totalCost.push(totalCostprint);
+Pizza.prototype.selectTopping = function(topping){
+  this.topping.push(this.toppings)
 }
 
 
-function addSizeToCost(size, cost){
-  var cost = 0;
-  this.size = function(){
+function addToCost(){
+  var cost;
     if(size === 8){
       size += cost;
       this.totalCost.push(cost);
@@ -32,17 +26,7 @@ function addSizeToCost(size, cost){
   }
 }
 
-function addToppingsToCost(toppings, cost){
-  var cost = addSizeToCost(cost);
-  this.toppings = function(){
-    if(toppings === 1){
-      toppings += cost;
-      this.totalCost.push(cost);
-    } else {
-      this.totalCost.push(cost);
-    }
-  }
-}
+
 
 // user interface 
 
@@ -63,8 +47,13 @@ function displayTotal (){
 $(document).ready(function(){
   $("button#completeOrder").submit(function(event){
     event.preventDefault();
-    var total = newOrder()
-    displayTotal(total);
+    var size = $("input:radio[name=size]:checked").val();
+    var toppings = [];
+    var yourPizza = new Pizza(size, toppings)
+    $("input:checkbox[name=toppings]:checked").each(function() {
+      var checkTopping = $(this).val();
+      yourPizza.addTopping(checkTopping);
+    });
 
   })
 })
