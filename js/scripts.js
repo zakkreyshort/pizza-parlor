@@ -48,7 +48,6 @@ $(document).ready(function() {
       var toppingsPicked = $(this).val();
       finalPizza.addTop(toppingsPicked);
     });
-    // console.log(selectedToppings); console log is picking up each selection but not returning a value 
     var finalPrice = finalPizza.addToCost();
     $("span.orderTotal").html(finalPrice);
   });
