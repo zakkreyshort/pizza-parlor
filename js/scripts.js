@@ -6,11 +6,22 @@ function Pizza(){
   this.totalCost = totalCost;
 }
 
-Pizza.prototype.addSizeToCost = function(size, toppings, cost){
+
+
+Pizza.prototype.totalCost = function displayAmount(){
+  var sizeRequested = parseInt($("radio#value").val());
+  var toppingsRequested = parseInt($("checkbox#value").val());
+  var totalCostprint = addSizeToCost(sizeRequested += toppingsRequested);
+  return totalCostprint;
+}
+
+
+function addSizeToCost(size, toppings, cost){
   var cost = 0;
   this.size = function(){
     if(size === 8){
       size += cost;
+      console.log(cost);
     } else if(size === 10){
       size += cost;
     } else if(size === 12){
@@ -28,26 +39,25 @@ Pizza.prototype.addSizeToCost = function(size, toppings, cost){
       }
     }
   }
-
-  
 }
 
 
 
 // user interface 
 
-var order = new Order();
 
-function newOrder (size, toppings, totalCost){
 
-}
+
 
 
 
 // front end 
 
 $(document).ready(function(){
-  $().submit(function(event){
+  $("button#completeOrder").submit(function(event){
     event.preventDefault();
-  }
+    var total = Pizza.totalCost;
+    $("#orderTotal").html(total);
+
+  })
 })
