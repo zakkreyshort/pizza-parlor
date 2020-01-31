@@ -16,41 +16,39 @@ Pizza.prototype.addToCost = function() {
       cost += 12;
     } ;
 // console.log(cost) currently returning value selected
-  var cost2 = 0;
-    if(this.toppings === "pepperoni"){
-      cost2 + 1;
-    } else if(this.toppings === "extra cheese"){
-      cost2 + 1;
-    } else if (this.toppings === "anchovies"){
-      cost2 + 1;
-    } else if (this.toppings === "pineapple"){
-      cost2 + 1;
+    if(this.toppings.includes("pepperoni")){
+      cost += 1;
     };
-  var finalCost = (cost += cost2);
-  return finalCost;
+    if(this.toppings.includes("extra cheese")){
+      cost += 1;
+    };
+    if(this.toppings.includes("anchovies")){
+      cost += 1;
+    };
+    if(this.toppings.includes("pineapple")){
+      cost += 1;
+    };    
+  return cost;
 };
 
-// method to push toppings to an array 
+// method to push toppings to an array (go through or display) 
 
 Pizza.prototype.addTop = function(topping) {
   this.toppings.push(topping);
 }
 
-
 // front end 
-
 $(document).ready(function() {
   $("#pizzaOrder").submit(function(){
     event.preventDefault();
-
     var selectedSize = $("input:radio[name=size]:checked").val();
     var selectedToppings = [];
     var finalPizza = new Pizza(selectedSize, selectedToppings);
-
     $("input:checkbox[name=toppings]:checked").each(function(){
       var toppingsPicked = $(this).val();
       finalPizza.addTop(toppingsPicked);
     });
+    // console.log(selectedToppings); console log is picking up each selection but not returning a value 
     var finalPrice = finalPizza.addToCost();
     $("span.orderTotal").html(finalPrice);
   });
