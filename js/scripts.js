@@ -1,11 +1,12 @@
-// back end 
-function Pizza(size, toppings){
-  this.size = size,
+// back end - create Pizza objec
+function Pizza(size, toppings) {
+  this.size = size;
   this.toppings = toppings;
 }
 
+// method for cost and size 
 
-Pizza.prototype.addToCost = function(){
+Pizza.prototype.addToCost = function() {
   var cost = 0;
     if(this.size === "small"){
       cost += 8;
@@ -14,34 +15,38 @@ Pizza.prototype.addToCost = function(){
     } else if(this.size === "large"){
       cost += 12;
     } ;
-    if(this.toppings === checked){
-      cost += 1;
+console.log(cost)
+  var cost2 = 0;
+    if(this.toppings.includes("pepperoni", "extra cheese", "anchovies", "pineapple")){
+      cost2 += 1;
     }
-    return cost;
+    return cost += cost2;
 };
 
-Pizza.prototype.addTop = function(topping){
+// method to push toppings to an array 
+
+Pizza.prototype.addTop = function(topping) {
   this.toppings.push(topping);
 }
 
 
 // front end 
 
-$(document).ready(function(){
-  $("form#pizzaOrder").submit(function(event){
+$(document).ready(function() {
+  $("#pizzaOrder").submit(function(){
     event.preventDefault();
 
-    var size = $("input:radio[name=size]:checked").val();
+    var size = $("#choosePizzaSize").val();
     var toppings = [];
 
-    var finalPizza = new Pizza(inputSize, inputToppings);
+    var finalPizza = new Pizza(size, toppings);
 
-    $("input:checkbox[name=toppings];checked").each(function(){
+    $("input:checkbox[name=toppings]:checked").each(function(){
       var toppingsPicked = $(this).val();
       finalPizza.addTop(toppingsPicked)
-    })
+    });
+    var finalPrice = finalPizza.addToCost();
+    $("span.orderTotal").html(finalPrice);
   });
-  var finalPrice = finalPizza.addToCost();
 
-  $("span.orderTotal").html(finalPrice)
 });
