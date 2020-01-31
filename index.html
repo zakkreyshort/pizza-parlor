@@ -12,9 +12,9 @@
 </head>
 <body>
 	<!-- experimentation with takeout/delivery  -->
-	<h1>Hi thanks for visiting us for all of your pizza needs!</h1>
 	<div class="container">
 		<div id="welcomeScreen">
+			<h1 id="firstHeader">Hi thanks for visiting us for all of your pizza needs!</h1>
 			<div class="row">
 				<div class="col-md-6">
 					<button id="deliveryBtn">Delivery</button>
@@ -23,10 +23,13 @@
 					<button id="takeoutBtn">Takeout</button>
 				</div>
 			</div>
+			<div class="container">
+				<p id="projectTag">A project by <a href="#">Zakkrey Short</a> </p>
+			</div>
 		</div>
 	</div>
 <!-- complete form with size, toppings, and total display  -->
-  <div class="container">
+  <div id="pizzaParlor" class="container">
 		<div id="headjumbo" class="jumbotron">
 			<h1>Pizza Parlor</h1>
 		</div>
@@ -36,7 +39,7 @@
   	<form id="pizzaOrder">
 			<h3>Please choose a size:</h3>
 			<div class="form-group" id="choosePizzaSize">
-				<input type="radio" name="size" value="small">Small <br>
+				<input type="radio" name="size" value="small">Small<br>
 				<input type="radio" name="size" value="medium">Medium <br>
 				<input type="radio" name="size" value="large"> Large
 			</div>

@@ -39,6 +39,19 @@ Pizza.prototype.addTop = function(topping) {
 
 // front end 
 $(document).ready(function() {
+
+// takeout or delivery 
+  $("#deliveryBtn").click(function(event){
+    event.preventDefault();
+    alert("Delivery is currently unavailable! Please check back soon:)")
+  });
+  $("#takeoutBtn").click(function(event){
+    event.preventDefault();
+    $("#pizzaParlor").show();
+    $("#welcomeScreen").hide();
+  })
+
+// pizza order form 
   $("#pizzaOrder").submit(function(){
     event.preventDefault();
     var selectedSize = $("input:radio[name=size]:checked").val();

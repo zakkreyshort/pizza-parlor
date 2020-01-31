@@ -1,3 +1,20 @@
+body{
+  background-image: url("../img/background.jpg");
+}
+
+#pizzaParlor{
+  display: none;
+}
+
+#firstHeader {
+  margin-top: 25%;
+}
+
+#projectTag {
+  text-align: center;
+  margin-top: 8%;
+}
+
 h1 {
   text-align: center;
   
