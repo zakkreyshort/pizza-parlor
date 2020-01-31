@@ -1,8 +1,8 @@
 // back end 
 function Pizza(size, toppings){
-  this.size = size;
-  this.toppings = toppings;
-};
+  this.size = size,
+  this.toppings = toppings
+}
 
 Pizza.prototype.addTopping = function(topping){
   this.toppings.push(topping);
@@ -18,11 +18,11 @@ Pizza.prototype.addToCost = function(){
       cost = 12;
     } ;
     // ??for loop going through each checkbox value for toppings??
-    for(var top = 0; top < this.toppings.length; i++){
+    for(var i = 0; i < this.toppings; i++){
       var toppingAdd = ["peperoni", "extra cheese", "anchovies", "pineapple"]
       if (toppingAdd.includes(this.toppings[i])){
       cost += 1;
-      };
+      }; 
   };
   return cost;
 };
@@ -30,10 +30,12 @@ Pizza.prototype.addToCost = function(){
 
 // user interface 
 
-var showMyTotal = function(Pizza){
-  var priceTotal = Pizza.addToCost();
-  $("span#orderTotal").html(priceTotal)
-};
+var showMyTotal = function(pizza){
+      var priceTotal = pizza.addToCost();
+      $("span.orderTotal").html(priceTotal);
+    }
+  
+
 
 
 // front end 
@@ -44,11 +46,10 @@ $(document).ready(function(){
 
     var size = $("input:radio[name=size]:checked").val();
     var toppings = [];
-    var yourPizza = new Pizza(size, toppings);
     $("input:checkbox[name=toppings]:checked").each(function() {
     var checkTopping = $(this).val();
-    yourPizza.selectTopping(checkTopping);
+      toppings.push(checkTopping);
     });
-    showMyTotal(checkTopping);
+    showMyTotal();
   });
 });
