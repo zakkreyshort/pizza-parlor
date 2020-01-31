@@ -12,8 +12,11 @@
 </head>
 <body>
   <div class="container">
-		<div class="jumbotron">
+		<div id="headjumbo" class="jumbotron">
 			<h1>Pizza Parlor</h1>
+		</div>
+		<div>
+			<img id="pizza" src="img/pizza.jpg" alt="Pizza">
 		</div>
   	<form id="pizzaOrder">
 			<h3>Please choose a size:</h3>
@@ -24,20 +27,16 @@
 			</div>
 			<h3>Choose any extra toppings(+$1 each):</h3>
 			<div class="form-group" id="toppingCheckbox">
-				<input type="checkbox" name="toppings" value="1">Pepperoni<br>
-				<input type="checkbox" name="toppings" value="1">Extra Cheese<br>
-				<input type="checkbox" name="toppings" value="1">Anchovies<br>
-				<input type="checkbox" name="toppings" value="1">Pineapple <br>
+				<input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>
+				<input type="checkbox" name="toppings" value="extra cheese">Extra Cheese<br>
+				<input type="checkbox" name="toppings" value="anchovies">Anchovies<br>
+				<input type="checkbox" name="toppings" value="pineapple">Pineapple <br>
 			</div>
-
-
 			<button type="submit" id="completeOrder">Finish Order!</button>
 		</form>
-
 		<div class="jumbotron">
 			<h2>Your total is: <span id="orderTotal"></span></h2>
 		</div>
   </div>
-  
 </body>
 </html>
