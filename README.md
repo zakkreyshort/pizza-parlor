@@ -29,6 +29,9 @@ _This project is a webpage that allows a user to order a pizza either by deliver
 * _Once you have navigated to the directory in the terminal, open the contents of the directory in a text editor or IDE of your choice (e.g., to open the contents of the directory in Visual Studio Code, enter the command "code ." in the Terminal)._
 * _Open index.html in a browser of your choice (e.g., Google Chrome)._
 
+## Bugs
+_Currently there is no functionality for delivery. Working on updating styling as I go. Work in progress._
+
 ## Technologies Used
 
 _Git, HTML, CSS, JavaScript, jQuery_

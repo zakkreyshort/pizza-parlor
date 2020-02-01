@@ -64,4 +64,6 @@ $(document).ready(function() {
     var finalPrice = finalPizza.addToCost();
     $("span.orderTotal").html(finalPrice);
   });
+
+  // thank you form 
 });
