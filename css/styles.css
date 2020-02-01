@@ -15,13 +15,21 @@ body{
   margin-top: 8%;
 }
 
+form{
+  background-color: lightsalmon;
+}
+
 h1 {
   text-align: center;
-  
+  margin-bottom: 0%;
 }
 #deliveryBtn, #takeoutBtn {
   margin-left: 40%;
 
+}
+img#pizza{
+  height: 287px;
+  width: 280px;
 }
 
 
