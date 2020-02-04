@@ -2,33 +2,33 @@
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
+  this.cost = 0;
 }
 
 // method for cost and size 
 
 Pizza.prototype.addToCost = function() {
-  var cost = 0;
     if(this.size === "small"){
-      cost += 8;
+      this.cost += 8;
     } else if(this.size === "medium"){
-      cost += 10;
+      this.cost += 10;
     } else if(this.size === "large"){
-      cost += 12;
+      this.cost += 12;
     } ;
-// console.log(cost) currently returning value selected
+// console.log(this.cost) currently returning value selected
     if(this.toppings.includes("pepperoni")){
-      cost += 1;
+      this.cost += 1;
     };
     if(this.toppings.includes("extra cheese")){
-      cost += 1;
+      this.cost += 1;
     };
     if(this.toppings.includes("anchovies")){
-      cost += 1;
+      this.cost += 1;
     };
     if(this.toppings.includes("pineapple")){
-      cost += 1;
+      this.cost += 1;
     };    
-  return cost;
+  return this.cost;
 };
 
 // method to push toppings to an array (go through or display) 
@@ -61,8 +61,7 @@ $(document).ready(function() {
       var toppingsPicked = $(this).val();
       finalPizza.addTop(toppingsPicked);
     });
-    var finalPrice = finalPizza.addToCost();
-    $("span.orderTotal").html(finalPrice);
+    $("span.orderTotal").html(finalPizza.addToCost());
   });
 
   // thank you form 
