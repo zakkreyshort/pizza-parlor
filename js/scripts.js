@@ -31,7 +31,6 @@ Pizza.prototype.addToCost = function() {
   return this.cost;
 };
 
-// method to push toppings to an array (go through or display) 
 
 Pizza.prototype.addTop = function(topping) {
   this.toppings.push(topping);
